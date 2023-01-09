@@ -8,11 +8,12 @@ class MyButton extends StatelessWidget {
     required this.buttonText,
     required this.onTap,
     this.height = 56,
+    this.textSize,
   });
 
   final String buttonText;
   final VoidCallback onTap;
-  double? height;
+  double? height,textSize;
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +41,7 @@ class MyButton extends StatelessWidget {
           child: Center(
             child: MyText(
               text: buttonText,
-              size: 17,
+              size: textSize ?? 17,
               fontFamily: 'sf_ui_display',
               weight: FontWeight.w700,
               color: kSecondaryColor,

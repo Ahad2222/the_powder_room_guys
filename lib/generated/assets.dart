@@ -20,6 +20,7 @@ class Assets {
   static const String imagesMention = 'assets/images/mention.png';
   static const String imagesMicrophone = 'assets/images/microphone.png';
   static const String imagesNoImageFound = 'assets/images/no_image_found.png';
+  static const String imagesNoMeetingEmptyState = 'assets/images/no_meeting_empty_state.png';
   static const String imagesNote = 'assets/images/note.png';
   static const String imagesNotificationBell = 'assets/images/notification_bell.png';
   static const String imagesProfile = 'assets/images/profile.png';

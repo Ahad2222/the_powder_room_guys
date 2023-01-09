@@ -6,6 +6,7 @@ import 'package:the_powder_room_guys/helper/font_families_constant.dart';
 import 'package:the_powder_room_guys/helper/sizes_constant.dart';
 import 'package:the_powder_room_guys/main.dart';
 import 'package:the_powder_room_guys/view/screens/guest/guest_chat/guest_add_new_note.dart';
+import 'package:the_powder_room_guys/view/screens/guest/guest_chat/guest_view.dart';
 import 'package:the_powder_room_guys/view/widget/attachment_button.dart';
 import 'package:the_powder_room_guys/view/widget/chat_bubbles.dart';
 import 'package:the_powder_room_guys/view/widget/common_image_view.dart';
@@ -275,35 +276,85 @@ class _GuestChatScreenState extends State<GuestChatScreen> {
             ),
           ),
           PopupMenuItem(
+            onTap: () => Get.to(
+              () => GuestView(
+                currentIndex: 1,
+              ),
+            ),
             child: MyText(
+              onTap: () => Get.to(
+                () => GuestView(
+                  currentIndex: 1,
+                ),
+              ),
               text: 'View task',
               size: 12,
               fontFamily: POPPINS,
             ),
           ),
           PopupMenuItem(
+            onTap: () => Get.to(
+              () => GuestView(
+                currentIndex: 2,
+              ),
+            ),
             child: MyText(
+              onTap: () => Get.to(
+                () => GuestView(
+                  currentIndex: 2,
+                ),
+              ),
               text: 'View event',
               size: 12,
               fontFamily: POPPINS,
             ),
           ),
           PopupMenuItem(
+            onTap: () => Get.to(
+              () => GuestView(
+                currentIndex: 3,
+              ),
+            ),
             child: MyText(
+              onTap: () => Get.to(
+                () => GuestView(
+                  currentIndex: 3,
+                ),
+              ),
               text: 'View notes',
               size: 12,
               fontFamily: POPPINS,
             ),
           ),
           PopupMenuItem(
+            onTap: () => Get.to(
+              () => GuestView(
+                currentIndex: 0,
+              ),
+            ),
             child: MyText(
+              onTap: () => Get.to(
+                () => GuestView(
+                  currentIndex: 0,
+                ),
+              ),
               text: 'View files',
               size: 12,
               fontFamily: POPPINS,
             ),
           ),
           PopupMenuItem(
+            onTap: () => Get.to(
+              () => GuestView(
+                currentIndex: 4,
+              ),
+            ),
             child: MyText(
+              onTap: () => Get.to(
+                () => GuestView(
+                  currentIndex: 4,
+                ),
+              ),
               text: 'Pinned',
               size: 12,
               fontFamily: POPPINS,
