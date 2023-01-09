@@ -4,6 +4,8 @@ import 'package:the_powder_room_guys/constant/color.dart';
 import 'package:the_powder_room_guys/helper/font_families_constant.dart';
 import 'package:the_powder_room_guys/helper/sizes_constant.dart';
 import 'package:the_powder_room_guys/view/screens/guest/guest_auth/guest_forgot_pass/guest_forgot_pass.dart';
+import 'package:the_powder_room_guys/view/screens/guest/guest_auth/guest_signup/guest_signup.dart';
+import 'package:the_powder_room_guys/view/screens/guest/guest_bottom_nav_bar/guest_bottom_nav_bar.dart';
 import 'package:the_powder_room_guys/view/widget/my_button.dart';
 import 'package:the_powder_room_guys/view/widget/my_text.dart';
 import 'package:the_powder_room_guys/view/widget/my_text_field.dart';
@@ -40,7 +42,7 @@ class GuestSignIn extends StatelessWidget {
           ),
           MyButton(
             buttonText: 'Sign in',
-            onTap: () {},
+            onTap: () => Get.offAll(() => GuestBottomNavBar()),
           ),
           SizedBox(
             height: 40,
@@ -55,7 +57,7 @@ class GuestSignIn extends StatelessWidget {
                 color: kGrey10Color,
               ),
               MyText(
-                onTap: () {},
+                onTap: () => Get.to(() => GuestSignup()),
                 text: 'Sign up',
                 size: 14,
                 weight: FontWeight.w700,

@@ -3,8 +3,23 @@ class Assets {
   Assets._();
 
   static const String imagesArrowBack = 'assets/images/arrow_back.png';
+  static const String imagesAttachments = 'assets/images/attachments.png';
+  static const String imagesAudioCall = 'assets/images/audio_call.png';
+  static const String imagesCalendar = 'assets/images/calendar.png';
+  static const String imagesChat = 'assets/images/chat.png';
   static const String imagesCongrats = 'assets/images/congrats.png';
+  static const String imagesDoubleTick = 'assets/images/double_tick.png';
+  static const String imagesEmoji = 'assets/images/emoji.png';
+  static const String imagesIconsMoreVert = 'assets/images/icons_more_vert.png';
   static const String imagesLogoPlaceHolder = 'assets/images/logo_place_holder.png';
+  static const String imagesMention = 'assets/images/mention.png';
+  static const String imagesMicrophone = 'assets/images/microphone.png';
   static const String imagesNoImageFound = 'assets/images/no_image_found.png';
+  static const String imagesNotificationBell = 'assets/images/notification_bell.png';
+  static const String imagesProfile = 'assets/images/profile.png';
+  static const String imagesSearch = 'assets/images/search.png';
+  static const String imagesSend = 'assets/images/send.png';
+  static const String imagesVideo = 'assets/images/video.png';
+  static const String imagesVideoCall = 'assets/images/video_call.png';
 
 }

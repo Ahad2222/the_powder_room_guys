@@ -1,8 +1,12 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:the_powder_room_guys/constant/color.dart';
 import 'package:the_powder_room_guys/helper/font_families_constant.dart';
 import 'package:the_powder_room_guys/view/screens/guest/guest_auth/guest_signin/guest_signin.dart';
+import 'package:the_powder_room_guys/view/screens/guest/guest_bottom_nav_bar/guest_bottom_nav_bar.dart';
+import 'package:the_powder_room_guys/view/screens/terms_and_policies/policies.dart';
+import 'package:the_powder_room_guys/view/screens/terms_and_policies/terms.dart';
 import 'package:the_powder_room_guys/view/widget/congrats.dart';
 import 'package:the_powder_room_guys/view/widget/custom_check_box.dart';
 import 'package:the_powder_room_guys/view/widget/my_button.dart';
@@ -51,10 +55,10 @@ class GuestAcceptTerms extends StatelessWidget {
                         ),
                         TextSpan(
                           text: 'terms & conditions',
-                          // recognizer: TapGestureRecognizer()
-                          //   ..onTap = () => Get.to(
-                          //         () => Terms(),
-                          //       ),
+                          recognizer: TapGestureRecognizer()
+                            ..onTap = () => Get.to(
+                                  () => Terms(),
+                                ),
                           style: TextStyle(
                             fontSize: 12,
                             fontWeight: FontWeight.w500,
@@ -65,10 +69,10 @@ class GuestAcceptTerms extends StatelessWidget {
                         ),
                         TextSpan(
                           text: 'privacy policy',
-                          // recognizer: TapGestureRecognizer()
-                          //   ..onTap = () => Get.to(
-                          //         () => Policies(),
-                          //       ),
+                          recognizer: TapGestureRecognizer()
+                            ..onTap = () => Get.to(
+                                  () => Policies(),
+                                ),
                           style: TextStyle(
                             fontSize: 12,
                             fontWeight: FontWeight.w500,
@@ -89,7 +93,7 @@ class GuestAcceptTerms extends StatelessWidget {
                 () => Congrats(
                   buttonText: 'Go to home',
                   congratsMsg: 'Account created successfully!',
-                  onContinue: () => Get.offAll(() => GuestSignIn()),
+                  onContinue: () => Get.offAll(() => GuestBottomNavBar()),
                 ),
               ),
             ),
