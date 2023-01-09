@@ -10,6 +10,7 @@ class Assets {
   static const String imagesCamera = 'assets/images/camera.png';
   static const String imagesChat = 'assets/images/chat.png';
   static const String imagesCongrats = 'assets/images/congrats.png';
+  static const String imagesDoc = 'assets/images/doc.png';
   static const String imagesDoubleTick = 'assets/images/double_tick.png';
   static const String imagesEmoji = 'assets/images/emoji.png';
   static const String imagesFile = 'assets/images/file.png';
@@ -17,16 +18,20 @@ class Assets {
   static const String imagesGif = 'assets/images/gif.png';
   static const String imagesIconsMoreVert = 'assets/images/icons_more_vert.png';
   static const String imagesLogoPlaceHolder = 'assets/images/logo_place_holder.png';
+  static const String imagesMChats = 'assets/images/m_chats.png';
   static const String imagesMention = 'assets/images/mention.png';
   static const String imagesMicrophone = 'assets/images/microphone.png';
+  static const String imagesMute = 'assets/images/mute.png';
   static const String imagesNoImageFound = 'assets/images/no_image_found.png';
   static const String imagesNoMeetingEmptyState = 'assets/images/no_meeting_empty_state.png';
   static const String imagesNote = 'assets/images/note.png';
   static const String imagesNotificationBell = 'assets/images/notification_bell.png';
+  static const String imagesParticipants = 'assets/images/participants.png';
   static const String imagesProfile = 'assets/images/profile.png';
   static const String imagesSearch = 'assets/images/search.png';
   static const String imagesSend = 'assets/images/send.png';
   static const String imagesVideo = 'assets/images/video.png';
   static const String imagesVideoCall = 'assets/images/video_call.png';
+  static const String imagesVideoOff = 'assets/images/video_off.png';
 
 }

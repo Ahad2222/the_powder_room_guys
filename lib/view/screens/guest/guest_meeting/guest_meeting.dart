@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:the_powder_room_guys/constant/color.dart';
 import 'package:the_powder_room_guys/helper/font_families_constant.dart';
 import 'package:the_powder_room_guys/helper/sizes_constant.dart';
 import 'package:the_powder_room_guys/main.dart';
+import 'package:the_powder_room_guys/view/screens/guest/guest_meeting/guest_join_meeting.dart';
 import 'package:the_powder_room_guys/view/widget/log_tile.dart';
 import 'package:the_powder_room_guys/view/widget/my_button.dart';
 import 'package:the_powder_room_guys/view/widget/my_text.dart';
@@ -34,7 +36,7 @@ class _GuestMeetingState extends State<GuestMeeting> {
                 children: [
                   MyButton(
                     buttonText: '+  Join Meeting',
-                    onTap: () {},
+                    onTap: () => Get.to(() => GuestJoinMeeting()),
                     textSize: 14,
                   ),
                   SizedBox(
