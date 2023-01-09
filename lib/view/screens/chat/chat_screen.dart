@@ -4,8 +4,10 @@ import 'package:the_powder_room_guys/constant/color.dart';
 import 'package:the_powder_room_guys/generated/assets.dart';
 import 'package:the_powder_room_guys/helper/font_families_constant.dart';
 import 'package:the_powder_room_guys/main.dart';
+import 'package:the_powder_room_guys/view/widget/chat_bubbles.dart';
 import 'package:the_powder_room_guys/view/widget/common_image_view.dart';
 import 'package:the_powder_room_guys/view/widget/my_text.dart';
+import 'package:the_powder_room_guys/view/widget/send_field.dart';
 
 class ChatScreen extends StatefulWidget {
   @override
@@ -15,52 +17,39 @@ class ChatScreen extends StatefulWidget {
 class _ChatScreenState extends State<ChatScreen> {
   List<Map<String, dynamic>> chat = [
     {
-      'isMe': true,
-      'msg': 'Hi, Mandy',
-      'time': '09:41 AM',
-      'haveOffer': false,
+      'isMe': false,
+      'msg': 'Hello, This is Duseca software!',
+      'otherUserName': 'Duseca software',
+      'otherUserImg': dummyImg2,
+      'msgTime': '3:53 PM',
     },
     {
       'isMe': true,
-      'msg': 'I’ve tried the app',
-      'time': '',
-      'haveOffer': false,
+      'msg': 'Hi, Duseca! Welcome to our team',
+      'otherUserName': 'Duseca software',
+      'otherUserImg': dummyImg,
+      'msgTime': '3:53 PM',
     },
     {
       'isMe': false,
-      'msg': 'Really?',
-      'time': '',
-      'haveOffer': false,
-    },
-    {
-      'isMe': true,
-      'msg': 'Yeah, It’s really good!',
-      'time': '',
-      'haveOffer': false,
-    },
-    {
-      'isMe': true,
-      'msg': 'Hi, Mandy',
-      'time': '09:41 AM',
-      'haveOffer': false,
+      'msg': 'Hello, This is Duseca software!',
+      'otherUserName': 'Duseca software',
+      'otherUserImg': dummyImg4,
+      'msgTime': '3:53 PM',
     },
     {
       'isMe': false,
-      'msg': 'Really?',
-      'time': '',
-      'haveOffer': false,
+      'msg': 'Hello, This is Duseca software!',
+      'otherUserName': 'Duseca software',
+      'otherUserImg': dummyImg3,
+      'msgTime': '3:53 PM',
     },
     {
-      'isMe': true,
-      'msg': 'Yeah, It’s really good!',
-      'time': '',
-      'haveOffer': false,
-    },
-    {
-      'isMe': true,
-      'msg': 'Hi, Mandy',
-      'time': '09:41 AM',
-      'haveOffer': false,
+      'isMe': false,
+      'msg': 'Hello, This is Duseca software!',
+      'otherUserName': 'Duseca software',
+      'otherUserImg': dummyImg1,
+      'msgTime': '3:53 PM',
     },
   ];
 
@@ -135,40 +124,42 @@ class _ChatScreenState extends State<ChatScreen> {
           ),
         ],
       ),
-      // body: Column(
-      //   crossAxisAlignment: CrossAxisAlignment.stretch,
-      //   children: [
-      //     Expanded(
-      //       child: Stack(
-      //         children: [
-      //           Column(
-      //             crossAxisAlignment: CrossAxisAlignment.stretch,
-      //             children: [
-      //               Expanded(
-      //                 child: ListView.builder(
-      //                   shrinkWrap: true,
-      //                   itemCount: chat.length,
-      //                   physics: BouncingScrollPhysics(),
-      //                   padding: EdgeInsets.fromLTRB(15, 60, 15, 100),
-      //                   itemBuilder: (context, index) {
-      //                     var data = chat[index];
-      //                     return CustomChatBubbles(
-      //                       msg: data['msg'],
-      //                       isMe: data['isMe'],
-      //                     );
-      //                   },
-      //                 ),
-      //               ),
-      //             ],
-      //           ),
-      //           // chatSendField(
-      //           //   isDark: isDark,
-      //           // ),
-      //         ],
-      //       ),
-      //     ),
-      //   ],
-      // ),
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.stretch,
+        children: [
+          Expanded(
+            child: Stack(
+              children: [
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    Expanded(
+                      child: ListView.builder(
+                        shrinkWrap: true,
+                        itemCount: chat.length,
+                        physics: BouncingScrollPhysics(),
+                        padding: EdgeInsets.fromLTRB(15, 60, 15, 15),
+                        itemBuilder: (context, index) {
+                          var data = chat[index];
+                          return ChatBubble(
+                            isMe: data['isMe'],
+                            myImg: dummyImg,
+                            msg: data['msg'],
+                            otherUserImg: data['otherUserImg'],
+                            otherUserName: data['otherUserName'],
+                            msgTime: data['msgTime'],
+                          );
+                        },
+                      ),
+                    ),
+                  ],
+                ),
+                chatSendField(),
+              ],
+            ),
+          ),
+        ],
+      ),
     );
   }
 
@@ -234,39 +225,34 @@ class _ChatScreenState extends State<ChatScreen> {
       ),
     );
   }
-// Widget chatSendField({bool isDark = false}) {
-//   return Column(
-//     mainAxisAlignment: MainAxisAlignment.end,
-//     children: [
-//       Container(
-//         height: 90,
-//         padding: EdgeInsets.symmetric(
-//           horizontal: 15,
-//         ),
-//         decoration: BoxDecoration(
-//           color: isDark ? kDarkSecondaryColor : kPrimaryColor,
-//           border: Border(
-//             top: BorderSide(
-//               color: isDark ? kPrimaryColor.withOpacity(0.05) : kBlackColor3,
-//               width: 1.0,
-//             ),
-//           ),
-//         ),
-//         child: Column(
-//           mainAxisAlignment: MainAxisAlignment.center,
-//           children: [
-//             SendField(
-//               isDark: isDark,
-//               onChanged: (value) {
-//                 setState(() {
-//                   value.isNotEmpty ? isTyping = true : isTyping = false;
-//                 });
-//               },
-//             ),
-//           ],
-//         ),
-//       ),
-//     ],
-//   );
-// }
+
+  Widget chatSendField() {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      mainAxisAlignment: MainAxisAlignment.end,
+      children: [
+        Container(
+          height: 90,
+          padding: EdgeInsets.symmetric(
+            horizontal: 15,
+          ),
+          decoration: BoxDecoration(
+            color: kSecondaryColor,
+            border: Border(
+              top: BorderSide(
+                color: kGrey1Color,
+                width: 1.0,
+              ),
+            ),
+          ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              SendField(),
+            ],
+          ),
+        ),
+      ],
+    );
+  }
 }

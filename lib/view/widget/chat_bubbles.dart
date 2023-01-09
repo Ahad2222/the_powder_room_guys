@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:the_powder_room_guys/constant/color.dart';
+import 'package:the_powder_room_guys/helper/font_families_constant.dart';
 import 'package:the_powder_room_guys/view/widget/common_image_view.dart';
 import 'package:the_powder_room_guys/view/widget/my_text.dart';
 
@@ -10,46 +11,44 @@ class ChatBubble extends StatelessWidget {
     required this.isMe,
     required this.otherUserImg,
     required this.otherUserName,
-    this.time,
-    required this.date,
     required this.msgTime,
     required this.msg,
     required this.myImg,
   }) : super(key: key);
 
-  final String msg, otherUserName, otherUserImg, date, msgTime, myImg;
+  final String msg, otherUserName, otherUserImg, msgTime, myImg;
   final bool isMe;
-  String? time;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(
-        bottom: 20,
+        bottom: 16,
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          time!.isNotEmpty ? timeBubble(time!) : const SizedBox(),
           isMe
               ? Wrap(
                   crossAxisAlignment: WrapCrossAlignment.center,
-                  spacing: 6,
+                  spacing: 8,
                   alignment: WrapAlignment.end,
                   children: [
                     MyText(
-                      text: '$date, $msgTime',
-                      size: 10,
-                      color: kGrey5Color,
-                    ),
-                    MyText(
                       text: 'Me',
                       size: 10,
+                      weight: FontWeight.w500,
+                      fontFamily: POPPINS,
                       color: kBlackColor,
                     ),
+                    MyText(
+                      text: '$msgTime',
+                      size: 10,
+                      color: kGrey4Color,
+                    ),
                     CommonImageView(
-                      height: 30,
-                      width: 30,
+                      height: 24,
+                      width: 24,
                       url: myImg,
                       radius: 100,
                       fit: BoxFit.cover,
@@ -58,12 +57,12 @@ class ChatBubble extends StatelessWidget {
                 )
               : Wrap(
                   crossAxisAlignment: WrapCrossAlignment.center,
-                  spacing: 6,
+                  spacing: 8,
                   alignment: WrapAlignment.start,
                   children: [
                     CommonImageView(
-                      height: 30,
-                      width: 30,
+                      height: 24,
+                      width: 24,
                       url: otherUserImg,
                       radius: 100,
                       fit: BoxFit.cover,
@@ -71,10 +70,12 @@ class ChatBubble extends StatelessWidget {
                     MyText(
                       text: otherUserName,
                       size: 10,
+                      weight: FontWeight.w500,
+                      fontFamily: POPPINS,
                       color: kBlackColor,
                     ),
                     MyText(
-                      text: '$date, $msgTime',
+                      text: '$msgTime',
                       size: 10,
                       color: kGrey5Color,
                     ),
@@ -83,39 +84,44 @@ class ChatBubble extends StatelessWidget {
           Align(
             alignment: isMe ? Alignment.topRight : Alignment.topLeft,
             child: Container(
-              margin: EdgeInsets.only(top: 10),
+              margin: EdgeInsets.only(
+                top: 4,
+                right: isMe ? 32 : 0,
+                left: isMe ? 0 : 32,
+              ),
               padding: const EdgeInsets.symmetric(
-                horizontal: 15,
-                vertical: 10,
+                horizontal: 16,
+                vertical: 12,
               ),
               decoration: BoxDecoration(
-                color: isMe ? kSecondaryColor : kGrey1Color,
-                borderRadius: BorderRadius.circular(50),
+                color: kSecondaryColor,
+                boxShadow: [
+                  BoxShadow(
+                    color: kBlackColor.withOpacity(0.05),
+                    offset: Offset(2, 2),
+                    blurRadius: 14,
+                  ),
+                ],
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(isMe ? 10 : 0),
+                  topRight: Radius.circular(isMe ? 0 : 10),
+                  bottomLeft: Radius.circular(10),
+                  bottomRight: Radius.circular(10),
+                ),
               ),
               child: Wrap(
                 crossAxisAlignment: WrapCrossAlignment.center,
                 children: [
                   MyText(
                     text: msg,
-                    size: 14,
-                    color: isMe ? kTertiaryColor : kBlackColor,
+                    size: 12,
+                    fontFamily: POPPINS,
                   ),
                 ],
               ),
             ),
           ),
         ],
-      ),
-    );
-  }
-
-  Widget timeBubble(String time) {
-    return Center(
-      child: MyText(
-        paddingBottom: 18,
-        text: time,
-        size: 12,
-        color: kGrey5Color,
       ),
     );
   }
