@@ -106,15 +106,21 @@ class _ChatScreenState extends State<ChatScreen> {
             child: Wrap(
               crossAxisAlignment: WrapCrossAlignment.center,
               children: [
-                Image.asset(
-                  Assets.imagesVideoCall,
-                  height: 24,
+                GestureDetector(
+                  onTap: () {},
+                  child: Image.asset(
+                    Assets.imagesVideoCall,
+                    height: 24,
+                  ),
                 ),
                 Padding(
                   padding: EdgeInsets.only(left: 16),
-                  child: Image.asset(
-                    Assets.imagesAudioCall,
-                    height: 20,
+                  child: GestureDetector(
+                    onTap: () {},
+                    child: Image.asset(
+                      Assets.imagesAudioCall,
+                      height: 20,
+                    ),
                   ),
                 ),
                 menuButton(),
@@ -150,6 +156,11 @@ class _ChatScreenState extends State<ChatScreen> {
                             haveTaskBubble: data['haveTaskBubble'],
                             haveMention: data['haveMention'],
                             mentionPerson: data['mentionPerson'],
+                            likeCount: 1.0,
+                            loveCount: 1.0,
+                            onLikeTap: () {},
+                            onLoveTap: () {},
+                            onEmojiTap: () {},
                           );
                         },
                       ),

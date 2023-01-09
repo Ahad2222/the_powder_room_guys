@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:the_powder_room_guys/constant/color.dart';
+import 'package:the_powder_room_guys/generated/assets.dart';
 import 'package:the_powder_room_guys/helper/font_families_constant.dart';
 import 'package:the_powder_room_guys/main.dart';
 import 'package:the_powder_room_guys/view/widget/common_image_view.dart';
@@ -18,12 +19,19 @@ class ChatBubble extends StatefulWidget {
     this.haveTaskBubble,
     this.haveMention = false,
     this.mentionPerson,
+    this.onEmojiTap,
+    this.onLikeTap,
+    this.onLoveTap,
+    this.likeCount = 0.0,
+    this.loveCount = 0.0,
   }) : super(key: key);
 
   final String msg, otherUserName, otherUserImg, msgTime, myImg;
   final bool isMe;
   String? mentionPerson;
   bool? haveTaskBubble, haveMention;
+  double? likeCount, loveCount;
+  VoidCallback? onLikeTap, onLoveTap, onEmojiTap;
 
   @override
   State<ChatBubble> createState() => _ChatBubbleState();
@@ -233,92 +241,183 @@ class _ChatBubbleState extends State<ChatBubble> {
                     ),
                   ),
                 )
-              : Align(
-                  alignment:
-                      widget.isMe ? Alignment.topRight : Alignment.topLeft,
-                  child: GestureDetector(
-                    onLongPress: () {},
-                    child: Container(
-                      margin: EdgeInsets.only(
-                        top: 4,
-                        right: widget.isMe ? 32 : 0,
-                        left: widget.isMe ? 0 : 32,
-                      ),
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 16,
-                        vertical: 12,
-                      ),
-                      decoration: BoxDecoration(
-                        color: kSecondaryColor,
-                        boxShadow: [
-                          BoxShadow(
-                            color: kBlackColor.withOpacity(0.05),
-                            offset: Offset(2, 2),
-                            blurRadius: 14,
+              : GestureDetector(
+                  child: Column(
+                    crossAxisAlignment: widget.isMe
+                        ? CrossAxisAlignment.end
+                        : CrossAxisAlignment.start,
+                    children: [
+                      GestureDetector(
+                        onLongPress: () {
+                          setState(() {
+                            showReaction = true;
+                          });
+                        },
+                        child: Align(
+                          alignment: widget.isMe
+                              ? Alignment.topRight
+                              : Alignment.topLeft,
+                          child: Container(
+                            margin: EdgeInsets.only(
+                              top: 4,
+                              right: widget.isMe ? 32 : 0,
+                              left: widget.isMe ? 0 : 32,
+                            ),
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 16,
+                              vertical: 12,
+                            ),
+                            decoration: BoxDecoration(
+                              color: kSecondaryColor,
+                              boxShadow: [
+                                BoxShadow(
+                                  color: kBlackColor.withOpacity(0.05),
+                                  offset: Offset(2, 2),
+                                  blurRadius: 14,
+                                ),
+                              ],
+                              borderRadius: BorderRadius.only(
+                                topLeft: Radius.circular(widget.isMe ? 10 : 0),
+                                topRight: Radius.circular(widget.isMe ? 0 : 10),
+                                bottomLeft: Radius.circular(10),
+                                bottomRight: Radius.circular(10),
+                              ),
+                            ),
+                            child: Wrap(
+                              crossAxisAlignment: WrapCrossAlignment.center,
+                              children: [
+                                widget.isMe
+                                    ? widget.haveMention!
+                                        ? Container(
+                                            margin: EdgeInsets.only(
+                                              right: 10,
+                                            ),
+                                            padding: EdgeInsets.symmetric(
+                                              horizontal: 8,
+                                              vertical: 4,
+                                            ),
+                                            decoration: BoxDecoration(
+                                              color:
+                                                  kBlueColor.withOpacity(0.1),
+                                              borderRadius:
+                                                  BorderRadius.circular(6),
+                                            ),
+                                            child: MyText(
+                                              text: widget.mentionPerson,
+                                              size: 12,
+                                              color: kBlueColor,
+                                            ),
+                                          )
+                                        : SizedBox()
+                                    : SizedBox(),
+                                MyText(
+                                  text: widget.msg,
+                                  size: 12,
+                                  fontFamily: POPPINS,
+                                ),
+                                widget.isMe == false
+                                    ? widget.haveMention!
+                                        ? Container(
+                                            margin: EdgeInsets.only(
+                                              left: 10,
+                                            ),
+                                            padding: EdgeInsets.symmetric(
+                                              horizontal: 8,
+                                              vertical: 4,
+                                            ),
+                                            decoration: BoxDecoration(
+                                              color:
+                                                  kBlueColor.withOpacity(0.1),
+                                              borderRadius:
+                                                  BorderRadius.circular(6),
+                                            ),
+                                            child: MyText(
+                                              text: widget.mentionPerson,
+                                              size: 12,
+                                              color: kBlueColor,
+                                            ),
+                                          )
+                                        : SizedBox()
+                                    : SizedBox(),
+                              ],
+                            ),
                           ),
-                        ],
-                        borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(widget.isMe ? 10 : 0),
-                          topRight: Radius.circular(widget.isMe ? 0 : 10),
-                          bottomLeft: Radius.circular(10),
-                          bottomRight: Radius.circular(10),
                         ),
                       ),
-                      child: Wrap(
-                        crossAxisAlignment: WrapCrossAlignment.center,
-                        children: [
-                          widget.isMe
-                              ? widget.haveMention!
-                                  ? Container(
-                                      margin: EdgeInsets.only(
-                                        right: 10,
-                                      ),
-                                      padding: EdgeInsets.symmetric(
-                                        horizontal: 8,
-                                        vertical: 4,
-                                      ),
+                      showReaction
+                          ? Padding(
+                              padding: EdgeInsets.only(
+                                top: 4,
+                                right: widget.isMe ? 32 : 0,
+                                left: widget.isMe ? 0 : 32,
+                              ),
+                              child: Wrap(
+                                spacing: 8,
+                                alignment: WrapAlignment.start,
+                                children: [
+                                  GestureDetector(
+                                    onTap: widget.onLikeTap,
+                                    child: Container(
+                                      padding:
+                                          EdgeInsets.symmetric(horizontal: 4),
                                       decoration: BoxDecoration(
-                                        color: kBlueColor.withOpacity(0.1),
-                                        borderRadius: BorderRadius.circular(6),
+                                        borderRadius: BorderRadius.circular(50),
+                                        border: Border.all(
+                                          width: 1.0,
+                                          color: kTextColor,
+                                        ),
                                       ),
                                       child: MyText(
-                                        text: widget.mentionPerson,
+                                        text:
+                                            '👍 ${widget.likeCount!.toInt().toString()}',
                                         size: 12,
-                                        color: kBlueColor,
                                       ),
-                                    )
-                                  : SizedBox()
-                              : SizedBox(),
-                          MyText(
-                            text: widget.msg,
-                            size: 12,
-                            fontFamily: POPPINS,
-                          ),
-                          widget.isMe == false
-                              ? widget.haveMention!
-                                  ? Container(
-                                      margin: EdgeInsets.only(
-                                        left: 10,
-                                      ),
-                                      padding: EdgeInsets.symmetric(
-                                        horizontal: 8,
-                                        vertical: 4,
-                                      ),
+                                    ),
+                                  ),
+                                  GestureDetector(
+                                    onTap: widget.onLoveTap,
+                                    child: Container(
+                                      padding:
+                                          EdgeInsets.symmetric(horizontal: 4),
                                       decoration: BoxDecoration(
-                                        color: kBlueColor.withOpacity(0.1),
-                                        borderRadius: BorderRadius.circular(6),
+                                        borderRadius: BorderRadius.circular(50),
+                                        border: Border.all(
+                                          width: 1.0,
+                                          color: kTextColor,
+                                        ),
                                       ),
                                       child: MyText(
-                                        text: widget.mentionPerson,
+                                        text:
+                                            '😍 ${widget.loveCount!.toInt().toString()}',
                                         size: 12,
-                                        color: kBlueColor,
                                       ),
-                                    )
-                                  : SizedBox()
-                              : SizedBox(),
-                        ],
-                      ),
-                    ),
+                                    ),
+                                  ),
+                                  GestureDetector(
+                                    onTap: widget.onEmojiTap,
+                                    child: Container(
+                                      height: 20,
+                                      width: 28,
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(50),
+                                        border: Border.all(
+                                          width: 1.0,
+                                          color: kTextColor,
+                                        ),
+                                      ),
+                                      child: Center(
+                                        child: Image.asset(
+                                          Assets.imagesAddEmoji,
+                                          height: 14,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            )
+                          : SizedBox(),
+                    ],
                   ),
                 ),
         ],

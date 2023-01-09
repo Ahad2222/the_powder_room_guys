@@ -2,6 +2,7 @@
 class Assets {
   Assets._();
 
+  static const String imagesAddEmoji = 'assets/images/add_emoji.png';
   static const String imagesArrowBack = 'assets/images/arrow_back.png';
   static const String imagesAttachments = 'assets/images/attachments.png';
   static const String imagesAudioCall = 'assets/images/audio_call.png';
