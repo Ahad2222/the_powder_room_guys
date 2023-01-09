@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:the_powder_room_guys/constant/color.dart';
 import 'package:the_powder_room_guys/generated/assets.dart';
 import 'package:the_powder_room_guys/helper/font_families_constant.dart';
+import 'package:the_powder_room_guys/helper/sizes_constant.dart';
 import 'package:the_powder_room_guys/main.dart';
 import 'package:the_powder_room_guys/view/widget/chat_bubbles.dart';
 import 'package:the_powder_room_guys/view/widget/common_image_view.dart';
@@ -17,39 +18,37 @@ class ChatScreen extends StatefulWidget {
 class _ChatScreenState extends State<ChatScreen> {
   List<Map<String, dynamic>> chat = [
     {
-      'isMe': false,
-      'msg': 'Hello, This is Duseca software!',
-      'otherUserName': 'Duseca software',
-      'otherUserImg': dummyImg2,
+      'isMe': true,
+      'msg': 'Really!',
+      'otherUserName': 'Marley Calzoni',
+      'otherUserImg': dummyImg,
       'msgTime': '3:53 PM',
+      'haveTaskBubble': false,
+      'haveMention': false,
+      'mentionPerson': '',
+      'taskDetail': {},
     },
     {
-      'isMe': true,
+      'isMe': false,
+      'msg': 'Yeah, It’s really good!',
+      'otherUserName': 'Marley Calzoni',
+      'otherUserImg': dummyImg2,
+      'msgTime': '3:53 PM',
+      'haveTaskBubble': false,
+      'haveMention': true,
+      'mentionPerson': 'Zaire',
+      'taskDetail': {},
+    },
+    {
+      'isMe': false,
       'msg': 'Hi, Duseca! Welcome to our team',
       'otherUserName': 'Duseca software',
       'otherUserImg': dummyImg,
       'msgTime': '3:53 PM',
-    },
-    {
-      'isMe': false,
-      'msg': 'Hello, This is Duseca software!',
-      'otherUserName': 'Duseca software',
-      'otherUserImg': dummyImg4,
-      'msgTime': '3:53 PM',
-    },
-    {
-      'isMe': false,
-      'msg': 'Hello, This is Duseca software!',
-      'otherUserName': 'Duseca software',
-      'otherUserImg': dummyImg3,
-      'msgTime': '3:53 PM',
-    },
-    {
-      'isMe': false,
-      'msg': 'Hello, This is Duseca software!',
-      'otherUserName': 'Duseca software',
-      'otherUserImg': dummyImg1,
-      'msgTime': '3:53 PM',
+      'haveTaskBubble': true,
+      'haveMention': false,
+      'mentionPerson': '',
+      'taskDetail': {},
     },
   ];
 
@@ -138,7 +137,7 @@ class _ChatScreenState extends State<ChatScreen> {
                         shrinkWrap: true,
                         itemCount: chat.length,
                         physics: BouncingScrollPhysics(),
-                        padding: EdgeInsets.fromLTRB(15, 60, 15, 15),
+                        padding: EdgeInsets.fromLTRB(15, 60, 15, 100),
                         itemBuilder: (context, index) {
                           var data = chat[index];
                           return ChatBubble(
@@ -148,13 +147,91 @@ class _ChatScreenState extends State<ChatScreen> {
                             otherUserImg: data['otherUserImg'],
                             otherUserName: data['otherUserName'],
                             msgTime: data['msgTime'],
+                            haveTaskBubble: data['haveTaskBubble'],
+                            haveMention: data['haveMention'],
+                            mentionPerson: data['mentionPerson'],
                           );
                         },
                       ),
                     ),
                   ],
                 ),
-                chatSendField(),
+                SendField(
+                  onAttachmentTap: () {
+                    showModalBottomSheet(
+                      context: context,
+                      isScrollControlled: true,
+                      backgroundColor: kSecondaryColor,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(14),
+                          topRight: Radius.circular(14),
+                        ),
+                      ),
+                      builder: (_) {
+                        return Padding(
+                          padding: MediaQuery.of(context).viewInsets,
+                          child: SizedBox(
+                            height: 200,
+                            child: Padding(
+                              padding: DEFAULT_PADDING,
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.stretch,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  SimpleSendField(),
+                                  Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      AttachmentButton(
+                                        onTap: () {},
+                                        icon: Assets.imagesCamera,
+                                        title: 'Camera',
+                                        color1: Color(0xff1575F5),
+                                        color2: Color(0xff1575F5),
+                                      ),
+                                      AttachmentButton(
+                                        onTap: () {},
+                                        icon: Assets.imagesGallery,
+                                        title: 'Gallery',
+                                        color1: Color(0xffAB53B9),
+                                        color2: Color(0xffBF59CF),
+                                      ),
+                                      AttachmentButton(
+                                        onTap: () {},
+                                        icon: Assets.imagesFile,
+                                        title: 'File',
+                                        color1: Color(0xff5F66CD),
+                                        color2: Color(0xff6971E0),
+                                      ),
+                                      AttachmentButton(
+                                        onTap: () {},
+                                        icon: Assets.imagesGif,
+                                        title: 'Gifs',
+                                        color1: Color(0xffEC407A),
+                                        color2: Color(0xffFF4483),
+                                      ),
+                                      AttachmentButton(
+                                        onTap: () {},
+                                        icon: Assets.imagesNote,
+                                        title: 'New note',
+                                        color1: Color(0xff1575F5),
+                                        color2: Color(0xff1575F5),
+                                      ),
+                                    ],
+                                  ),
+                                  SizedBox(),
+                                ],
+                              ),
+                            ),
+                          ),
+                        );
+                      },
+                    );
+                  },
+                ),
               ],
             ),
           ),
@@ -225,32 +302,66 @@ class _ChatScreenState extends State<ChatScreen> {
       ),
     );
   }
+}
 
-  Widget chatSendField() {
+class AttachmentButton extends StatelessWidget {
+  const AttachmentButton({
+    Key? key,
+    required this.title,
+    required this.icon,
+    required this.color1,
+    required this.color2,
+    required this.onTap,
+  }) : super(key: key);
+  final String title, icon;
+  final Color color1, color2;
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.stretch,
-      mainAxisAlignment: MainAxisAlignment.end,
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Container(
-          height: 90,
-          padding: EdgeInsets.symmetric(
-            horizontal: 15,
-          ),
+          height: 48,
+          width: 48,
           decoration: BoxDecoration(
-            color: kSecondaryColor,
-            border: Border(
-              top: BorderSide(
-                color: kGrey1Color,
-                width: 1.0,
+            shape: BoxShape.circle,
+            gradient: LinearGradient(
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+              stops: [
+                0.5,
+                0.5,
+              ],
+              colors: [
+                color1,
+                color2,
+              ],
+            ),
+          ),
+          child: Material(
+            color: Colors.transparent,
+            child: InkWell(
+              onTap: onTap,
+              borderRadius: BorderRadius.circular(100),
+              splashColor: kSecondaryColor.withOpacity(0.1),
+              highlightColor: kSecondaryColor.withOpacity(0.1),
+              child: Center(
+                child: Image.asset(
+                  icon,
+                  height: 24,
+                ),
               ),
             ),
           ),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              SendField(),
-            ],
-          ),
+        ),
+        MyText(
+          paddingTop: 8,
+          text: title,
+          size: 10,
+          fontFamily: POPPINS,
+          color: kGrey8Color,
         ),
       ],
     );

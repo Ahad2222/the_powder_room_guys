@@ -14,4 +14,7 @@ const kGrey8Color = Color(0xff4E515E);
 const kGrey10Color = Color(0xff1B2030);
 const kRedColor = Color(0xffFF002E);
 const kOnlineGreenColor = Color(0xff21CA6F);
-
+const kBlueColor = Color(0xff15ABFF);
+const kOrangeColor = Color(0xffFF7715);
+const kPurpleColor = Color(0xff6E15FF);
+const kGreenColor = Color(0xff15FF9D);
