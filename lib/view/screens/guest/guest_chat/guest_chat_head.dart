@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:the_powder_room_guys/generated/assets.dart';
 import 'package:the_powder_room_guys/main.dart';
+import 'package:the_powder_room_guys/view/screens/guest/guest_chat/guest_chat_screen.dart';
 import 'package:the_powder_room_guys/view/widget/chat_head_tile.dart';
 import 'package:the_powder_room_guys/view/widget/common_image_view.dart';
 import 'package:the_powder_room_guys/view/widget/search_bar.dart';
 
-class ChatHeads extends StatelessWidget {
+class GuestChatHead extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,6 +30,9 @@ class ChatHeads extends StatelessWidget {
               time: '9.56 AM',
               unreadCount: index == 2 ? 3 : 0,
               isSeen: index == 0 ? true : false,
+              onTap: () => Get.to(
+                () => GuestChatScreen(),
+              ),
             );
           },
         ),

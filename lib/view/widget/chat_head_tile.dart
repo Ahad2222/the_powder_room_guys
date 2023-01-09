@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:the_powder_room_guys/constant/color.dart';
 import 'package:the_powder_room_guys/generated/assets.dart';
 import 'package:the_powder_room_guys/helper/font_families_constant.dart';
-import 'package:the_powder_room_guys/view/screens/chat/chat_screen.dart';
 import 'package:the_powder_room_guys/view/widget/common_image_view.dart';
 import 'package:the_powder_room_guys/view/widget/my_text.dart';
 
@@ -17,20 +15,20 @@ class ChatHeadTiles extends StatelessWidget {
     required this.time,
     this.isSeen = false,
     this.unreadCount = 0,
+    required this.onTap,
   }) : super(key: key);
 
   final String profileImage, name, lastMsg, time;
   bool? isSeen;
   int? unreadCount;
+  final VoidCallback onTap;
 
   @override
   Widget build(BuildContext context) {
     return Material(
       color: isSeen! ? kGrey1Color.withOpacity(0.5) : Colors.transparent,
       child: ListTile(
-        onTap: () => Get.to(
-          () => ChatScreen(),
-        ),
+       onTap: onTap,
         contentPadding: EdgeInsets.symmetric(
           horizontal: 20,
         ),

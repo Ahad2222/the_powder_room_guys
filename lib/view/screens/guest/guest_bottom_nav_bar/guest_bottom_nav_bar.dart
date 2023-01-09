@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:the_powder_room_guys/constant/color.dart';
 import 'package:the_powder_room_guys/generated/assets.dart';
-import 'package:the_powder_room_guys/view/screens/chat/chat_head.dart';
+import 'package:the_powder_room_guys/view/screens/guest/guest_chat/guest_chat_head.dart';
 
 class GuestBottomNavBar extends StatefulWidget {
   @override
@@ -19,7 +19,7 @@ class _GuestBottomNavBarState extends State<GuestBottomNavBar> {
   int currentIndex = 0;
 
   final List<Widget> screens = [
-    ChatHeads(),
+    GuestChatHead(),
     Container(),
     Container(),
     Container(),
