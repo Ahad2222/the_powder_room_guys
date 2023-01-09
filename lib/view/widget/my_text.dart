@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:the_powder_room_guys/constant/color.dart';
 
 // ignore: must_be_immutable
 class MyText extends StatelessWidget {
@@ -7,6 +8,7 @@ class MyText extends StatelessWidget {
   double? size, height;
   double? paddingTop, paddingLeft, paddingRight, paddingBottom, letterSpacing;
   FontStyle? fontStyle;
+
   // ignore: prefer_typing_uninitialized_variables
   var maxLines, overFlow;
   VoidCallback? onTap;
@@ -47,7 +49,7 @@ class MyText extends StatelessWidget {
           "$text",
           style: TextStyle(
             fontSize: size,
-            color: color,
+            color: color ?? kTextColor,
             fontWeight: weight,
             decoration: decoration,
             fontFamily: fontFamily ?? 'poppins',

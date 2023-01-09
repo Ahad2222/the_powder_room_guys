@@ -2,6 +2,9 @@
 class Assets {
   Assets._();
 
+  static const String imagesArrowBack = 'assets/images/arrow_back.png';
+  static const String imagesCongrats = 'assets/images/congrats.png';
+  static const String imagesLogoPlaceHolder = 'assets/images/logo_place_holder.png';
   static const String imagesNoImageFound = 'assets/images/no_image_found.png';
 
 }
