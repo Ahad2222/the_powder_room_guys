@@ -16,32 +16,36 @@ class MyToggleButtons extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.symmetric(
-        horizontal: 30,
-        vertical: 11,
-      ),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(50),
-        color: isSelected ? kTertiaryColor : kPrimaryColor,
-        border: Border.all(
-          width: 1.0,
-          color: isSelected ? kTertiaryColor : kGrey1Color,
+    return GestureDetector(
+      onTap: onTap,
+      child: Container(
+        padding: EdgeInsets.symmetric(
+          horizontal: 30,
+          vertical: 11,
         ),
-        boxShadow: isSelected
-            ? [
-                BoxShadow(
-                  offset: Offset(0, 4),
-                  blurRadius: 10,
-                  color: kTertiaryColor.withOpacity(0.3),
-                ),
-              ]
-            : [],
-      ),
-      child: MyText(
-        text: text,
-        size: 12,
-        color: isSelected ? kSecondaryColor : kGrey8Color,
+        alignment: Alignment.center,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(50),
+          color: isSelected ? kTertiaryColor : kPrimaryColor,
+          border: Border.all(
+            width: 1.0,
+            color: isSelected ? kTertiaryColor : kGrey1Color,
+          ),
+          boxShadow: isSelected
+              ? [
+                  BoxShadow(
+                    offset: Offset(0, 4),
+                    blurRadius: 10,
+                    color: kTertiaryColor.withOpacity(0.3),
+                  ),
+                ]
+              : [],
+        ),
+        child: MyText(
+          text: text,
+          size: 12,
+          color: isSelected ? kSecondaryColor : kGrey8Color,
+        ),
       ),
     );
   }
