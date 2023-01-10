@@ -74,7 +74,7 @@ class MemberEventDetail extends StatelessWidget {
                 ),
               );
             },
-          )
+          ),
         ],
       ),
     );

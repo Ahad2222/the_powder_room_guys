@@ -96,7 +96,7 @@ class _MemberChatScreenState extends State<MemberChatScreen> {
                   MyText(
                     text: 'Online',
                     fontFamily: POPPINS,
-                    color: kOnlineGreenColor,
+                    color: kSuccessColor,
                     size: 10,
                   ),
                 ],

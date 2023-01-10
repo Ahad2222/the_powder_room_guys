@@ -1,16 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:the_powder_room_guys/constant/color.dart';
 import 'package:the_powder_room_guys/main.dart';
 import 'package:the_powder_room_guys/view/screens/member/member_event/member_events_tabs/m_events.dart';
 import 'package:the_powder_room_guys/view/screens/member/member_event/member_events_tabs/m_tasks.dart';
+import 'package:the_powder_room_guys/view/screens/member/member_event/member_task_detail_tabs/m_task_chat.dart';
+import 'package:the_powder_room_guys/view/screens/member/member_event/member_task_detail_tabs/m_task_detail.dart';
 import 'package:the_powder_room_guys/view/widget/my_toggle_button.dart';
 import 'package:the_powder_room_guys/view/widget/profiel_image_app_bar.dart';
+import 'package:the_powder_room_guys/view/widget/simple_app_bar.dart';
 
-class MemberEvent extends StatefulWidget {
+class MemberTaskDetail extends StatefulWidget {
   @override
-  State<MemberEvent> createState() => _MemberEventState();
+  State<MemberTaskDetail> createState() => _MemberTaskDetailState();
 }
 
-class _MemberEventState extends State<MemberEvent> {
+class _MemberTaskDetailState extends State<MemberTaskDetail> {
   int _currentTab = 0;
 
   void getCurrentTab(int index) {
@@ -20,17 +24,16 @@ class _MemberEventState extends State<MemberEvent> {
   }
 
   List<Widget> _tabs = [
-    MEvents(),
-    MTasks(),
+    MTaskDetail(),
+    MTaskChat(),
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: profileImageAppBar(
-        imgUrl: dummyImg3,
-        onMention: () {},
-        onNotification: () {},
+      appBar: simpleAppBar(
+        title: 'Task details',
+        bgColor: kSecondaryColor,
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -44,7 +47,7 @@ class _MemberEventState extends State<MemberEvent> {
               children: [
                 Expanded(
                   child: MyToggleButtons(
-                    text: 'Event',
+                    text: 'Details',
                     isSelected: _currentTab == 0,
                     onTap: () => getCurrentTab(0),
                   ),
@@ -52,7 +55,7 @@ class _MemberEventState extends State<MemberEvent> {
                 SizedBox(width: 16),
                 Expanded(
                   child: MyToggleButtons(
-                    text: 'Task',
+                    text: 'Message',
                     isSelected: _currentTab == 1,
                     onTap: () => getCurrentTab(1),
                   ),

@@ -24,6 +24,7 @@ class ChatBubble extends StatefulWidget {
     this.onLoveTap,
     this.likeCount = 0.0,
     this.loveCount = 0.0,
+    this.isOnTaskDetail = false,
   }) : super(key: key);
 
   final String msg, otherUserName, otherUserImg, msgTime, myImg;
@@ -32,6 +33,7 @@ class ChatBubble extends StatefulWidget {
   bool? haveTaskBubble, haveMention;
   double? likeCount, loveCount;
   VoidCallback? onLikeTap, onLoveTap, onEmojiTap;
+  bool? isOnTaskDetail;
 
   @override
   State<ChatBubble> createState() => _ChatBubbleState();
@@ -268,7 +270,9 @@ class _ChatBubbleState extends State<ChatBubble> {
                               vertical: 12,
                             ),
                             decoration: BoxDecoration(
-                              color: kSecondaryColor,
+                              color: widget.isOnTaskDetail! && widget.isMe
+                                  ? kTextColor
+                                  : kSecondaryColor,
                               boxShadow: [
                                 BoxShadow(
                                   color: kBlackColor.withOpacity(0.05),
@@ -314,6 +318,9 @@ class _ChatBubbleState extends State<ChatBubble> {
                                   text: widget.msg,
                                   size: 12,
                                   fontFamily: POPPINS,
+                                  color: widget.isOnTaskDetail! && widget.isMe
+                                      ? kSecondaryColor
+                                      : kTextColor,
                                 ),
                                 widget.isMe == false
                                     ? widget.haveMention!
