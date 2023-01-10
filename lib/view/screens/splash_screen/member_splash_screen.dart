@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:the_powder_room_guys/generated/assets.dart';
-import 'package:the_powder_room_guys/view/screens/guest/guest_auth/guest_signin/guest_signin.dart';
-import 'package:the_powder_room_guys/view/screens/guest/guest_auth/guest_signup/guest_signup.dart';
+import 'package:the_powder_room_guys/view/screens/member/member_auth/member_signin/member_signin.dart';
 
-class GuestSplashScreen extends StatefulWidget {
+class MemberSplashScreen extends StatefulWidget {
   @override
-  State<GuestSplashScreen> createState() => _GuestSplashScreenState();
+  State<MemberSplashScreen> createState() => _MemberSplashScreenState();
 }
 
-class _GuestSplashScreenState extends State<GuestSplashScreen> {
+class _MemberSplashScreenState extends State<MemberSplashScreen> {
   @override
   void initState() {
     super.initState();
@@ -19,7 +18,7 @@ class _GuestSplashScreenState extends State<GuestSplashScreen> {
   void splashScreenHandler() {
     Future.delayed(
       Duration(seconds: 2),
-      () => Get.offAll(() => GuestSignIn()),
+          () => Get.offAll(() => MemberSignIn()),
     );
   }
 
