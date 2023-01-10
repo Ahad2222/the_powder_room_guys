@@ -3,6 +3,8 @@ import 'package:get/get.dart';
 import 'package:the_powder_room_guys/generated/assets.dart';
 import 'package:the_powder_room_guys/main.dart';
 import 'package:the_powder_room_guys/view/screens/guest/guest_chat/guest_chat_screen.dart';
+import 'package:the_powder_room_guys/view/screens/guest/guest_notifications/guest_mentions.dart';
+import 'package:the_powder_room_guys/view/screens/guest/guest_notifications/guest_notifications.dart';
 import 'package:the_powder_room_guys/view/widget/chat_head_tile.dart';
 import 'package:the_powder_room_guys/view/widget/common_image_view.dart';
 import 'package:the_powder_room_guys/view/widget/search_bar.dart';
@@ -74,14 +76,14 @@ class GuestChatHead extends StatelessWidget {
               spacing: 12,
               children: [
                 GestureDetector(
-                  onTap: () {},
+                  onTap: () => Get.to(() => GuestMentions()),
                   child: Image.asset(
                     Assets.imagesMention,
                     height: 24,
                   ),
                 ),
                 GestureDetector(
-                  onTap: () {},
+                  onTap: () => Get.to(() => GuestNotifications()),
                   child: Image.asset(
                     Assets.imagesNotificationBell,
                     height: 24,

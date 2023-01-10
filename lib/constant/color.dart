@@ -10,6 +10,7 @@ const kGrey2Color = Color(0xffE6E6E8);
 const kGrey3Color = Color(0xffCCCDD1);
 const kGrey4Color = Color(0xffB3B5BA);
 const kGrey5Color = Color(0xff9A9CA3);
+const kGrey7Color = Color(0xff676A75);
 const kGrey8Color = Color(0xff4E515E);
 const kGrey10Color = Color(0xff1B2030);
 const kRedColor = Color(0xffFF002E);

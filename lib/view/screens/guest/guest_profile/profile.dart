@@ -78,7 +78,7 @@ class GuestProfile extends StatelessWidget {
             onTap: () {},
           ),
           ProfileTile(
-            icon: Assets.imagesProfile,
+            icon: Assets.imagesAccountSettings,
             title: 'Account settings',
             onTap: () => Get.to(
               () => GuestAccountSettings(),

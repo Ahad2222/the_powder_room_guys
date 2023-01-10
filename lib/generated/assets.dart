@@ -38,7 +38,6 @@ class Assets {
   static const String imagesParticipants = 'assets/images/participants.png';
   static const String imagesPlane = 'assets/images/plane.png';
   static const String imagesProfile = 'assets/images/profile.png';
-  static const String imagesProfileSettings = 'assets/images/ProfileSettings.java';
   static const String imagesSearch = 'assets/images/search.png';
   static const String imagesSend = 'assets/images/send.png';
   static const String imagesSettingsNotify = 'assets/images/settings_notify.png';
