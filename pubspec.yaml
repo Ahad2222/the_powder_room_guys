@@ -17,6 +17,7 @@ dependencies:
   cached_network_image: ^3.2.3
   flutter_svg: ^1.1.6
   timelines: ^0.1.0
+  flutter_rating_bar: ^4.0.1
 
 
 dev_dependencies:

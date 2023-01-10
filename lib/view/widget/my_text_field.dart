@@ -17,6 +17,7 @@ class MyTextField extends StatelessWidget {
     this.hintColor,
     this.haveLabel = true,
     this.labelSize,
+    this.fillColor,
   }) : super(key: key);
   String? label, hintText;
 
@@ -26,7 +27,7 @@ class MyTextField extends StatelessWidget {
   double? marginBottom;
   int? maxLines;
   double? labelSize;
-  Color? hintColor;
+  Color? hintColor,fillColor;
 
   @override
   Widget build(BuildContext context) {
@@ -57,6 +58,8 @@ class MyTextField extends StatelessWidget {
               color: kTextColor,
             ),
             decoration: InputDecoration(
+              filled: true,
+              fillColor: fillColor ?? Colors.transparent,
               contentPadding: EdgeInsets.symmetric(
                 horizontal: 15,
                 vertical: maxLines! > 1 ? 15 : 0,
