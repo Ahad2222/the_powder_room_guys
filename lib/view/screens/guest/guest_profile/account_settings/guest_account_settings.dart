@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:the_powder_room_guys/generated/assets.dart';
 import 'package:the_powder_room_guys/helper/sizes_constant.dart';
+import 'package:the_powder_room_guys/main.dart';
+import 'package:the_powder_room_guys/view/widget/common_image_view.dart';
 import 'package:the_powder_room_guys/view/widget/my_button.dart';
 import 'package:the_powder_room_guys/view/widget/my_text_field.dart';
 import 'package:the_powder_room_guys/view/widget/simple_app_bar.dart';
 
-class GuestChangeName extends StatelessWidget {
+class GuestAccountSettings extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -16,6 +19,23 @@ class GuestChangeName extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
+            Center(
+              child: Stack(
+                alignment: Alignment.bottomCenter,
+                children: [
+                  CommonImageView(
+                    height: 80,
+                    width: 80,
+                    radius: 100.0,
+                    url: dummyImg4,
+                  ),
+                  Image.asset(
+                    Assets.imagesAddProfileImage,
+                    height: 25,
+                  ),
+                ],
+              ),
+            ),
             SizedBox(
               height: 40,
             ),
@@ -24,10 +44,11 @@ class GuestChangeName extends StatelessWidget {
               hintText: 'Raju Mullah',
             ),
             SizedBox(
-              height: 60,
+              height: 40,
             ),
             MyButton(
               buttonText: 'Save',
+              textSize: 14,
               onTap: () {},
             ),
           ],

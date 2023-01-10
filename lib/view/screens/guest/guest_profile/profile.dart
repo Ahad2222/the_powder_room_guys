@@ -5,7 +5,11 @@ import 'package:the_powder_room_guys/constant/color.dart';
 import 'package:the_powder_room_guys/generated/assets.dart';
 import 'package:the_powder_room_guys/helper/font_families_constant.dart';
 import 'package:the_powder_room_guys/main.dart';
+import 'package:the_powder_room_guys/view/screens/guest/guest_auth/guest_forgot_pass/guest_change_pass.dart';
 import 'package:the_powder_room_guys/view/screens/guest/guest_profile/account_settings/guest_account_settings.dart';
+import 'package:the_powder_room_guys/view/screens/guest/guest_profile/account_settings/guest_faq.dart';
+import 'package:the_powder_room_guys/view/screens/guest/guest_profile/account_settings/guest_notification_settings.dart';
+import 'package:the_powder_room_guys/view/screens/guest/guest_profile/account_settings/guest_update_pass.dart';
 import 'package:the_powder_room_guys/view/widget/common_image_view.dart';
 import 'package:the_powder_room_guys/view/widget/my_button.dart';
 import 'package:the_powder_room_guys/view/widget/my_text.dart';
@@ -77,23 +81,29 @@ class GuestProfile extends StatelessWidget {
             icon: Assets.imagesProfile,
             title: 'Account settings',
             onTap: () => Get.to(
-              () => GuestChangeName(),
+              () => GuestAccountSettings(),
             ),
           ),
           ProfileTile(
             icon: Assets.imagesLock,
             title: '***********',
-            onTap: () {},
+            onTap: () => Get.to(
+              () => GuestUpdatePass(),
+            ),
           ),
           ProfileTile(
             icon: Assets.imagesSettingsNotify,
             title: 'Notifications',
-            onTap: () {},
+            onTap: () => Get.to(
+              () => GuestNotificationSettings(),
+            ),
           ),
           ProfileTile(
             icon: Assets.imagesFaq,
             title: 'FAQ',
-            onTap: () {},
+            onTap: () => Get.to(
+              () => GuestFaq(),
+            ),
           ),
           ProfileTile(
             icon: Assets.imagesFeedback,
