@@ -5,6 +5,7 @@ import 'package:the_powder_room_guys/generated/assets.dart';
 import 'package:the_powder_room_guys/view/screens/admin/admin_chat/admin_chat_head.dart';
 import 'package:the_powder_room_guys/view/screens/admin/admin_event/admin_event.dart';
 import 'package:the_powder_room_guys/view/screens/admin/admin_meeting/admin_meeting.dart';
+import 'package:the_powder_room_guys/view/screens/admin/admin_profile/admin_profile.dart';
 import 'package:the_powder_room_guys/view/screens/admin/create_team/create_team.dart';
 import 'package:the_powder_room_guys/view/screens/member/member_profile/profile.dart';
 
@@ -29,7 +30,7 @@ class _AdminBottomNavBarState extends State<AdminBottomNavBar> {
     AdminMeeting(),
     Container(),
     AdminEvent(),
-    MemberProfile(),
+    AdminProfile(),
   ];
 
   @override
