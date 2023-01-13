@@ -5,12 +5,11 @@ import 'package:the_powder_room_guys/generated/assets.dart';
 import 'package:the_powder_room_guys/helper/font_families_constant.dart';
 import 'package:the_powder_room_guys/main.dart';
 import 'package:the_powder_room_guys/view/screens/super_admin/admins/admins_chats_with_team.dart';
-import 'package:the_powder_room_guys/view/screens/super_admin/super_admin_chat/super_admin_chat_with_admin_screen.dart';
 import 'package:the_powder_room_guys/view/widget/common_image_view.dart';
 import 'package:the_powder_room_guys/view/widget/my_text.dart';
 import 'package:the_powder_room_guys/view/widget/search_bar.dart';
 
-class AdminsProfile extends StatelessWidget {
+class AdminsProfileView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

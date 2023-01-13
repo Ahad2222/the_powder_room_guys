@@ -1,9 +1,12 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:get/get.dart';
 import 'package:the_powder_room_guys/constant/color.dart';
 import 'package:the_powder_room_guys/generated/assets.dart';
 import 'package:the_powder_room_guys/helper/font_families_constant.dart';
+import 'package:the_powder_room_guys/helper/sizes_constant.dart';
 import 'package:the_powder_room_guys/main.dart';
 import 'package:the_powder_room_guys/view/screens/admin/admin_profile/admin_account_settings/admin_change_company_name.dart';
 import 'package:the_powder_room_guys/view/screens/admin/admin_profile/admin_account_settings/admin_change_name.dart';
@@ -84,13 +87,43 @@ class AdminProfile extends StatelessWidget {
                   icon: Assets.imagesOnline,
                   title: 'Online',
                   haveNextIcon: false,
-                  onTap: () {},
+                  onTap: () {
+                    showModalBottomSheet(
+                      context: context,
+                      isScrollControlled: true,
+                      backgroundColor: kSecondaryColor,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(14),
+                          topRight: Radius.circular(14),
+                        ),
+                      ),
+                      builder: (_) {
+                        return AvailabilityStatus();
+                      },
+                    );
+                  },
                 ),
                 ProfileTile(
                   icon: Assets.imagesPlane,
                   title: 'Travelling',
                   haveNextIcon: false,
-                  onTap: () {},
+                  onTap: () {
+                    showModalBottomSheet(
+                      context: context,
+                      isScrollControlled: true,
+                      backgroundColor: kSecondaryColor,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(14),
+                          topRight: Radius.circular(14),
+                        ),
+                      ),
+                      builder: (_) {
+                        return Status();
+                      },
+                    );
+                  },
                 ),
                 ProfileTile(
                   icon: Assets.imagesDarkMode,
@@ -298,6 +331,202 @@ class AdminProfile extends StatelessWidget {
           ),
         ),
       ],
+    );
+  }
+}
+
+class AvailabilityStatus extends StatelessWidget {
+  AvailabilityStatus({
+    Key? key,
+  }) : super(key: key);
+  final List<Map<String, dynamic>> statuses = [
+    {
+      'icon': Assets.imagesAvailable,
+      'title': 'Available',
+      'subTitle': 'You’will appear as available.',
+    },
+    {
+      'icon': Assets.AvailabilityStatus,
+      'title': 'Do not disturb',
+      'subTitle': 'You’will appear as unavailable.',
+    },
+    {
+      'icon': Assets.imagesInvisible,
+      'title': 'Invisible',
+      'subTitle': 'You’will appear as ofline but you’ll still available.',
+    },
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: MediaQuery.of(context).viewInsets,
+      child: SizedBox(
+        height: 250,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Center(
+              child: Padding(
+                padding: EdgeInsets.symmetric(vertical: 8),
+                child: Image.asset(
+                  Assets.imagesBottomSheetHandle,
+                  height: 5,
+                ),
+              ),
+            ),
+            Expanded(
+              child: Padding(
+                padding: EdgeInsets.symmetric(
+                  horizontal: 16,
+                  vertical: 8,
+                ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: List.generate(
+                    statuses.length,
+                    (index) {
+                      var data = statuses[index];
+                      return Row(
+                        children: [
+                          Image.asset(
+                            data['icon'],
+                            height: 24,
+                          ),
+                          SizedBox(
+                            width: 8,
+                          ),
+                          Expanded(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.stretch,
+                              children: [
+                                MyText(
+                                  text: data['title'],
+                                  size: 14,
+                                  color: kGrey8Color,
+                                ),
+                                MyText(
+                                  paddingTop: 2,
+                                  text: data['subTitle'],
+                                  size: 10,
+                                  color: kGrey8Color,
+                                ),
+                              ],
+                            ),
+                          ),
+                          if (index == 0)
+                            Image.asset(
+                              Assets.imagesSelectedRoundedCheck,
+                              height: 24,
+                            ),
+                        ],
+                      );
+                    },
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class Status extends StatelessWidget {
+  Status({
+    Key? key,
+  }) : super(key: key);
+  final List<Map<String, dynamic>> statuses = [
+    {
+      'icon': Assets.imagesOutOfOffice,
+      'title': 'Out of office',
+    },
+    {
+      'icon': Assets.imagesScheduleCalendart,
+      'title': 'In a meeting',
+    },
+    {
+      'icon': Assets.imagesSick,
+      'title': 'Off sick',
+    },
+    {
+      'icon': Assets.imagesRemoteWork,
+      'title': 'Working remotely',
+    },
+    {
+      'icon': Assets.imagesOnHoliday,
+      'title': 'On holiday',
+    },
+    {
+      'icon': Assets.imagesPlane,
+      'title': 'Travelling',
+    },
+    {
+      'icon': Assets.imagesNone,
+      'title': 'None of above',
+    },
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: MediaQuery.of(context).viewInsets,
+      child: SizedBox(
+        height: 420,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Center(
+              child: Padding(
+                padding: EdgeInsets.symmetric(vertical: 8),
+                child: Image.asset(
+                  Assets.imagesBottomSheetHandle,
+                  height: 5,
+                ),
+              ),
+            ),
+            Expanded(
+              child: Padding(
+                padding: EdgeInsets.symmetric(
+                  horizontal: 16,
+                  vertical: 8,
+                ),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: List.generate(
+                    statuses.length,
+                    (index) {
+                      var data = statuses[index];
+                      return Row(
+                        children: [
+                          Image.asset(
+                            data['icon'],
+                            height: 24,
+                          ),
+                          Expanded(
+                            child: MyText(
+                              paddingLeft: 8,
+                              text: data['title'],
+                              size: 14,
+                              color: kGrey8Color,
+                            ),
+                          ),
+                          if (index == 0)
+                            Image.asset(
+                              Assets.imagesSelectedRoundedCheck,
+                              height: 24,
+                            ),
+                        ],
+                      );
+                    },
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }

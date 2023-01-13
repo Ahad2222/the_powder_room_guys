@@ -11,6 +11,7 @@ class Assets {
   static const String imagesAttachments = 'assets/images/attachments.png';
   static const String imagesAudioCall = 'assets/images/audio_call.png';
   static const String imagesAvailable = 'assets/images/available.png';
+  static const String imagesBottomSheetHandle = 'assets/images/bottom_sheet_handle.png';
   static const String imagesBusinessAndTrade = 'assets/images/business_and_trade.png';
   static const String imagesCalendar = 'assets/images/calendar.png';
   static const String imagesCamera = 'assets/images/camera.png';
@@ -19,7 +20,7 @@ class Assets {
   static const String imagesCongrats = 'assets/images/congrats.png';
   static const String imagesDarkMode = 'assets/images/dark_mode.png';
   static const String imagesDelete = 'assets/images/delete.png';
-  static const String imagesDoNotDisturb = 'assets/images/do_not_disturb.png';
+  static const String AvailabilityStatus = 'assets/images/do_not_disturb.png';
   static const String imagesDoc = 'assets/images/doc.png';
   static const String imagesDoubleTick = 'assets/images/double_tick.png';
   static const String imagesEdit = 'assets/images/edit.png';

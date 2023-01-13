@@ -34,7 +34,7 @@ class MyApp extends StatelessWidget {
       title: 'The Powder Room Guys',
       theme: lightTheme,
       themeMode: ThemeMode.light,
-      initialRoute: AppLinks.super_admin_splash_screen,
+      initialRoute: AppLinks.admin_splash_screen,
       getPages: AppRoutes.pages,
       defaultTransition: Transition.cupertino,
     );

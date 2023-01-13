@@ -4,7 +4,7 @@ import 'package:the_powder_room_guys/constant/color.dart';
 import 'package:the_powder_room_guys/generated/assets.dart';
 import 'package:the_powder_room_guys/helper/font_families_constant.dart';
 import 'package:the_powder_room_guys/main.dart';
-import 'package:the_powder_room_guys/view/screens/super_admin/admins/admin_profile.dart';
+import 'package:the_powder_room_guys/view/screens/super_admin/admins/admin_profile_view.dart';
 import 'package:the_powder_room_guys/view/widget/common_image_view.dart';
 import 'package:the_powder_room_guys/view/widget/my_text.dart';
 import 'package:the_powder_room_guys/view/widget/search_bar.dart';
@@ -31,7 +31,7 @@ class Admins extends StatelessWidget {
               companyName: 'Company name',
               time: '9.56 AM',
               onTap: () => Get.to(
-                () => AdminsProfile(),
+                () => AdminsProfileView(),
               ),
             );
           },
