@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_switch/flutter_switch.dart';
-import 'package:get/get.dart';
 import 'package:the_powder_room_guys/constant/color.dart';
 import 'package:the_powder_room_guys/helper/font_families_constant.dart';
 import 'package:the_powder_room_guys/view/widget/my_text.dart';

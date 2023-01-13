@@ -21,6 +21,8 @@ dependencies:
   flutter_switch: ^0.3.2
   expandable: ^5.0.1
   step_progress_indicator: ^1.0.2
+  dropdown_button2: ^1.9.2
+  textfield_tags: ^2.0.2
 
 
 dev_dependencies:

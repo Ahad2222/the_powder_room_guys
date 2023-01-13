@@ -2,12 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:the_powder_room_guys/config/routes/routes.dart';
 import 'package:the_powder_room_guys/config/theme/light_theme.dart';
+import 'package:the_powder_room_guys/controller/admin_controller/admin_auth_controller/admin_auth_controller.dart';
 import 'package:the_powder_room_guys/controller/guest_controller/guest_auth_controller/guest_auth_controller.dart';
 import 'package:the_powder_room_guys/controller/member_controller/member_auth_controller/member_sign_up_controller.dart';
 
 void main() {
   Get.put(GuestAuthController());
   Get.put(MemberAuthController());
+  Get.put(AdminAuthController());
   runApp(MyApp());
 }
 
@@ -32,8 +34,9 @@ class MyApp extends StatelessWidget {
       title: 'The Powder Room Guys',
       theme: lightTheme,
       themeMode: ThemeMode.light,
-      initialRoute: AppLinks.member_splash_screen,
+      initialRoute: AppLinks.admin_splash_screen,
       getPages: AppRoutes.pages,
+      defaultTransition: Transition.cupertino,
     );
   }
 }

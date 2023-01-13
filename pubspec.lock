@@ -71,6 +71,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.5"
+  dropdown_button2:
+    dependency: "direct main"
+    description:
+      name: dropdown_button2
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.9.2"
   expandable:
     dependency: "direct main"
     description:
@@ -394,6 +401,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.4.12"
+  textfield_tags:
+    dependency: "direct main"
+    description:
+      name: textfield_tags
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.0.2"
   timelines:
     dependency: "direct main"
     description:
