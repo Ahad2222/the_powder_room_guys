@@ -11,7 +11,6 @@ import 'package:the_powder_room_guys/view/screens/admin/admin_event/create_new_t
 import 'package:the_powder_room_guys/view/widget/common_image_view.dart';
 import 'package:the_powder_room_guys/view/widget/my_text.dart';
 import 'package:the_powder_room_guys/view/widget/my_toggle_button.dart';
-import 'package:the_powder_room_guys/view/widget/profiel_image_app_bar.dart';
 
 class AdminEvent extends StatefulWidget {
   @override

@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:the_powder_room_guys/constant/color.dart';
+import 'package:the_powder_room_guys/generated/assets.dart';
+import 'package:the_powder_room_guys/helper/font_families_constant.dart';
 import 'package:the_powder_room_guys/view/screens/admin/admin_event/admin_task_detail_tabs/a_task_chat.dart';
 import 'package:the_powder_room_guys/view/screens/admin/admin_event/admin_task_detail_tabs/a_task_detail.dart';
+import 'package:the_powder_room_guys/view/widget/my_text.dart';
 import 'package:the_powder_room_guys/view/widget/my_toggle_button.dart';
 import 'package:the_powder_room_guys/view/widget/simple_app_bar.dart';
 
@@ -27,9 +31,42 @@ class _AdminTaskDetailState extends State<AdminTaskDetail> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: simpleAppBar(
-        title: 'Task details',
-        bgColor: kSecondaryColor,
+      appBar: AppBar(
+        backgroundColor: kSecondaryColor,
+        centerTitle: true,
+        leading: IconButton(
+          onPressed: () => Get.back(),
+          icon: Image.asset(
+            Assets.imagesArrowBack,
+            height: 24,
+          ),
+        ),
+        title: MyText(
+          text: 'title',
+          size: 16,
+          fontFamily: SF_UI_DISPLAY,
+          weight: FontWeight.w700,
+        ),
+        actions: [
+          Center(
+            child: Wrap(
+              spacing: 12,
+              children: [
+                Image.asset(
+                  Assets.imagesEdit,
+                  height: 24,
+                ),
+                Image.asset(
+                  Assets.imagesMoreVert,
+                  height: 24,
+                ),
+                SizedBox(
+                  width: 0,
+                ),
+              ],
+            ),
+          ),
+        ],
       ),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,

@@ -4,6 +4,7 @@ import 'package:step_progress_indicator/step_progress_indicator.dart';
 import 'package:the_powder_room_guys/constant/color.dart';
 import 'package:the_powder_room_guys/helper/font_families_constant.dart';
 import 'package:the_powder_room_guys/helper/sizes_constant.dart';
+import 'package:the_powder_room_guys/view/screens/admin/admin_event/admin_task_detail.dart';
 import 'package:the_powder_room_guys/view/screens/member/member_event/member_task_detail.dart';
 import 'package:the_powder_room_guys/view/widget/my_text.dart';
 
@@ -33,7 +34,7 @@ class ATasks extends StatelessWidget {
                 3,
                 (index) {
                   return TaskTile(
-                    onTap: () => Get.to(() => MemberTaskDetail()),
+                    onTap: () => Get.to(() => AdminTaskDetail()),
                     title: 'Mobile App Design',
                     completionPercentage: index == 0
                         ? 50

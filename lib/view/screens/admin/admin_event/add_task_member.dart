@@ -44,6 +44,9 @@ class _AddTaskMemberState extends State<AddTaskMember> {
       appBar: simpleAppBar(
         bgColor: kSecondaryColor,
         title: 'Add member',
+        haveActionText: true,
+        actionText: 'Save',
+        onActionTextTap: () {},
       ),
       body: ListView(
         shrinkWrap: true,
@@ -63,19 +66,19 @@ class _AddTaskMemberState extends State<AddTaskMember> {
               return null;
             },
             inputfieldBuilder: (
-                context,
-                tec,
-                fn,
-                error,
-                onChanged,
-                onSubmitted,
-                ) {
+              context,
+              tec,
+              fn,
+              error,
+              onChanged,
+              onSubmitted,
+            ) {
               return ((
-                  context,
-                  sc,
-                  tags,
-                  onTagDelete,
-                  ) {
+                context,
+                sc,
+                tags,
+                onTagDelete,
+              ) {
                 return Stack(
                   children: [
                     TextField(
@@ -116,31 +119,31 @@ class _AddTaskMemberState extends State<AddTaskMember> {
                         ),
                         prefixIcon: tags.isNotEmpty
                             ? SingleChildScrollView(
-                          controller: sc,
-                          scrollDirection: Axis.horizontal,
-                          child: Row(
-                            children: List.generate(
-                              tags.isNotEmpty ? tags.length + 1 : 1,
-                                  (index) {
-                                if (index < tags.length) {
-                                  return TagPerson(
-                                    name: tags[index],
-                                    img: dummyImg,
-                                    onRemove: () => onTagDelete(
-                                      tags[index],
-                                    ),
-                                  );
-                                } else {
-                                  return MyText(
-                                    text: '1+',
-                                    size: 12,
-                                    weight: FontWeight.w500,
-                                  );
-                                }
-                              },
-                            ),
-                          ),
-                        )
+                                controller: sc,
+                                scrollDirection: Axis.horizontal,
+                                child: Row(
+                                  children: List.generate(
+                                    tags.isNotEmpty ? tags.length + 1 : 1,
+                                    (index) {
+                                      if (index < tags.length) {
+                                        return TagPerson(
+                                          name: tags[index],
+                                          img: dummyImg,
+                                          onRemove: () => onTagDelete(
+                                            tags[index],
+                                          ),
+                                        );
+                                      } else {
+                                        return MyText(
+                                          text: '1+',
+                                          size: 12,
+                                          weight: FontWeight.w500,
+                                        );
+                                      }
+                                    },
+                                  ),
+                                ),
+                              )
                             : null,
                       ),
                       onChanged: onChanged,
@@ -149,14 +152,14 @@ class _AddTaskMemberState extends State<AddTaskMember> {
                     tags.length > 0
                         ? SizedBox()
                         : Positioned(
-                      left: 15,
-                      top: 15,
-                      child: MyText(
-                        text: '1+',
-                        size: 12,
-                        weight: FontWeight.w500,
-                      ),
-                    ),
+                            left: 15,
+                            top: 15,
+                            child: MyText(
+                              text: '1+',
+                              size: 12,
+                              weight: FontWeight.w500,
+                            ),
+                          ),
                   ],
                 );
               });
