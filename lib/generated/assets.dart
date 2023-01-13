@@ -70,6 +70,7 @@ class Assets {
   static const String imagesSettingsNotify = 'assets/images/settings_notify.png';
   static const String imagesSick = 'assets/images/sick.png';
   static const String imagesUploadHere = 'assets/images/upload_here.png';
+  static const String imagesUsers = 'assets/images/users.png';
   static const String imagesVideo = 'assets/images/video.png';
   static const String imagesVideoCall = 'assets/images/video_call.png';
   static const String imagesVideoOff = 'assets/images/video_off.png';

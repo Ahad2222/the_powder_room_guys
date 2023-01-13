@@ -2,34 +2,30 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:the_powder_room_guys/constant/color.dart';
 import 'package:the_powder_room_guys/generated/assets.dart';
-import 'package:the_powder_room_guys/view/screens/admin/admin_chat/admin_chat_head.dart';
-import 'package:the_powder_room_guys/view/screens/admin/admin_event/admin_event.dart';
-import 'package:the_powder_room_guys/view/screens/admin/admin_meeting/admin_meeting.dart';
 import 'package:the_powder_room_guys/view/screens/admin/admin_profile/admin_profile.dart';
 import 'package:the_powder_room_guys/view/screens/admin/create_team/create_team.dart';
+import 'package:the_powder_room_guys/view/screens/super_admin/add_admin/add_admin.dart';
+import 'package:the_powder_room_guys/view/screens/super_admin/admins/admins.dart';
+import 'package:the_powder_room_guys/view/screens/super_admin/super_admin_chat/super_admin_chat_head.dart';
 
-class AdminBottomNavBar extends StatefulWidget {
+class SuperAdminBottomNavBar extends StatefulWidget {
   @override
-  State<AdminBottomNavBar> createState() => _AdminBottomNavBarState();
+  State<SuperAdminBottomNavBar> createState() => _SuperAdminBottomNavBarState();
 }
 
-class _AdminBottomNavBarState extends State<AdminBottomNavBar> {
+class _SuperAdminBottomNavBarState extends State<SuperAdminBottomNavBar> {
   List<String> items = [
     Assets.imagesChat,
     Assets.imagesVideo,
-    Assets.imagesVideo,
-    Assets.imagesCalendar,
-    Assets.imagesProfile,
+    Assets.imagesUsers,
   ];
 
   int currentIndex = 0;
 
   final List<Widget> screens = [
-    AdminChatHead(),
-    AdminMeeting(),
+    SuperAdminChatHead(),
     Container(),
-    AdminEvent(),
-    AdminProfile(),
+    Admins(),
   ];
 
   @override
@@ -40,8 +36,8 @@ class _AdminBottomNavBarState extends State<AdminBottomNavBar> {
         elevation: 1,
         backgroundColor: kSecondaryColor,
         onTap: (index) {
-          index == 2
-              ? Get.to(() => CreateTeam())
+          index == 1
+              ? Get.to(() => AddAdmin())
               : setState(() {
                   currentIndex = index;
                 });
@@ -58,9 +54,9 @@ class _AdminBottomNavBarState extends State<AdminBottomNavBar> {
           items.length,
           (index) {
             return BottomNavigationBarItem(
-              icon: index == 2
+              icon: index == 1
                   ? GestureDetector(
-                      onTap: () => Get.to(() => CreateTeam()),
+                      onTap: () => Get.to(() => AddAdmin()),
                       child: Container(
                         height: 42,
                         width: 42,
